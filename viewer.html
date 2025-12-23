@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Snapshot Viewer</title>
+  <link rel="stylesheet" href="viewer.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="toolbar">
+      <div class="left">
+        <div class="h1">HTML текущей страницы</div>
+        <div class="meta" id="metaLine">Загрузка…</div>
+      </div>
+
+      <div class="right">
+        <div class="search">
+          <input id="searchInput" type="text" placeholder="Найти…" />
+          <button id="btnFindPrev" class="icon-btn" title="Найти предыдущее">◀</button>
+          <button id="btnFindNext" class="icon-btn" title="Найти следующее">▶</button>
+        </div>
+
+        <label class="toggle">
+          <input type="checkbox" id="wrapToggle" checked />
+          <span>Перенос строк</span>
+        </label>
+
+        <button class="btn" id="btnCopy" title="Скопировать">
+          <!-- Bootstrap Icons: clipboard (MIT) -->
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M10 1.5H6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+            <path d="M4 1.5A1.5 1.5 0 0 1 5.5 0h5A1.5 1.5 0 0 1 12 1.5V3h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h1z"/>
+          </svg>
+          Copy
+        </button>
+
+        <button class="btn btn-primary" id="btnSave" title="Сохранить .html">
+          <!-- Bootstrap Icons: download (MIT) -->
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.6A1.5 1.5 0 0 0 2.5 14.5h11A1.5 1.5 0 0 0 15 13v-2.6a.5.5 0 0 1 1 0V13A2.5 2.5 0 0 1 13.5 15.5h-11A2.5 2.5 0 0 1 0 13v-2.6a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+          </svg>
+          Save .html
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <textarea id="codeArea" spellcheck="false" wrap="soft" readonly></textarea>
+    </main>
+
+    <footer class="statusbar">
+      <div id="status">Готово.</div>
+      <div class="tip">Это снимок DOM на момент захвата.</div>
+    </footer>
+  </div>
+
+  <script src="viewer.js"></script>
+</body>
+</html>

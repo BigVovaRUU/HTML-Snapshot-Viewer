@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Snapshot</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title-row">
+        <div class="logo" aria-hidden="true">
+          <!-- Bootstrap Icons: filetype-html (MIT) -->
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5z"/>
+            <path d="M13.5 4H9a1 1 0 0 1-1-1V.5z"/>
+            <path d="M3.5 6.5h.5V7h-.5zm1 0H5V7h-.5zm1 0H6V7h-.5zm1 0H7V7h-.5zm1 0H8V7h-.5zm1 0H9V7h-.5zm1 0H10V7h-.5zm1 0H11V7h-.5z"/>
+            <path d="M3.5 8h.5v.5h-.5zm1 0H5v.5h-.5zm1 0H6v.5h-.5zm1 0H7v.5h-.5zm1 0H8v.5h-.5zm1 0H9v.5h-.5zm1 0H10v.5h-.5zm1 0H11v.5h-.5z"/>
+            <path d="M3.5 9.5h.5v.5h-.5zm1 0H5v.5h-.5zm1 0H6v.5h-.5zm1 0H7v.5h-.5zm1 0H8v.5h-.5zm1 0H9v.5h-.5zm1 0H10v.5h-.5zm1 0H11v.5h-.5z"/>
+            <path d="M4.5 12h1v-1h-1zm2 0h1v-1h-1zm2 0h1v-1h-1zm2 0h1v-1h-1z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="title">HTML Snapshot</div>
+          <div class="subtitle" id="siteSubtitle">Активная вкладка</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <div class="card-title">Режим</div>
+        <label class="radio">
+          <input type="radio" name="mode" value="instant" checked />
+          <span>Текущее состояние DOM (рекомендуется)</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="mode" value="interactive" />
+          <span>Запись действий (виджет на странице)</span>
+        </label>
+        <div class="hint">
+          Для “всего динамического” раскройте нужные элементы на странице перед захватом.
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">Опции захвата</div>
+
+        <label class="check">
+          <input type="checkbox" id="autoExpand" />
+          <span>Попробовать раскрыть типовые элементы (details/accordion)</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" id="includeIframes" />
+          <span>Включать same-origin iframe (если доступно)</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" id="includeShadowDom" />
+          <span>Пытаться извлечь open Shadow DOM</span>
+        </label>
+
+        <label class="row">
+          <span class="row-label">Задержка</span>
+          <select id="delay">
+            <option value="0">Без задержки</option>
+            <option value="1000">1 сек</option>
+            <option value="3000">3 сек</option>
+            <option value="5000">5 сек</option>
+          </select>
+        </label>
+
+        <div class="hint">
+          Iframe cross-origin недоступны из-за ограничений браузера.
+        </div>
+      </section>
+
+      <section class="actions">
+        <button class="btn btn-primary" id="btnCaptureOpen">Захватить и открыть окно</button>
+        <button class="btn" id="btnQuickCopy">Быстро скопировать HTML</button>
+      </section>
+
+      <section class="actions" id="interactiveActions" hidden>
+        <button class="btn btn-primary" id="btnStartInteractive">Запустить виджет на странице</button>
+        <button class="btn" id="btnStopInteractive">Остановить виджет</button>
+      </section>
+
+      <div class="status" id="status"></div>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

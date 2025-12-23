@@ -1,0 +1,141 @@
+:root{
+  --bg:#0f1115;
+  --card:#171a21;
+  --muted:#9aa3b2;
+  --text:#e6e8ee;
+  --border:rgba(255,255,255,0.08);
+  --primary:#2d7ff9;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%; margin:0;}
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.app{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+.toolbar{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(15,17,21,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.left .h1{
+  font-size:14px;
+  font-weight:800;
+  line-height:1.2;
+}
+.left .meta{
+  font-size:12px;
+  color: var(--muted);
+  margin-top:2px;
+}
+
+.right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.search{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px 8px;
+}
+.search input{
+  width: 220px;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 12px;
+}
+.icon-btn{
+  border: 0;
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 6px 8px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.toggle{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+  color: var(--muted);
+  user-select:none;
+}
+
+.btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn svg{opacity:0.95;}
+.btn-primary{
+  background: var(--primary);
+  border-color: rgba(255,255,255,0.12);
+}
+.btn:disabled{opacity:0.6; cursor:not-allowed;}
+
+.main{
+  flex:1;
+  padding: 10px 14px 0 14px;
+}
+#codeArea{
+  width:100%;
+  height:100%;
+  resize:none;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--text);
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.35;
+  outline:none;
+}
+
+.statusbar{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+}
+.tip{opacity:0.85;}
